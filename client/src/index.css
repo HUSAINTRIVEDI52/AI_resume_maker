@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* --- GLOBAL TYPOGRAPHY --- */
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-serif: "Playfair Display", ui-serif, serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+    /* --- GLOBAL SPACING & RADIUS --- */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-full: 9999px;
+
+    /* --- BASE DEFAULTS (Fallback) --- */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+  }
+
+  /* =========================================
+     THEME: MODERN (Apple / Notion Style)
+     Vibe: Clean, Airy, Professional, Soft
+     ========================================= */
+  .theme-modern {
+    /* Backgrounds */
+    --bg-base: 240 5% 98%;
+    /* #f5f5f7 - Page BG */
+    --bg-surface: 0 0% 100%;
+    /* #ffffff - Card BG */
+    --bg-surface-2: 240 5% 96%;
+    /* #f3f4f6 - Secondary Surface */
+
+    /* Text */
+    --text-primary: 220 15% 10%;
+    /* #111827 - Almost Black */
+    --text-secondary: 220 10% 40%;
+    /* #6b7280 - Dark Gray */
+    --text-muted: 220 10% 60%;
+    /* #9ca3af - Light Gray */
+
+    /* Accent (Indigo) */
+    --accent-primary: 243 75% 59%;
+    /* #4f46e5 */
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 243 75% 96%;
+    /* Very light indigo */
+
+    /* Borders */
+    --border-subtle: 220 13% 91%;
+    /* #e5e7eb */
+    --border-strong: 220 13% 85%;
+
+    /* UI Elements */
+    --radius-card: 1rem;
+    --radius-btn: 0.75rem;
+    --font-body: var(--font-sans);
+    --font-heading: var(--font-sans);
+
+    /* Shadows */
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-float: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  }
+
+  /* =========================================
+     THEME: BOLD (Linear / Vercel Style)
+     Vibe: Dark, Neon, High Contrast, Tech
+     ========================================= */
+  .theme-bold {
+    /* Backgrounds */
+    --bg-base: 225 10% 5%;
+    /* #0b0c10 - Deep Void */
+    --bg-surface: 225 10% 8%;
+    /* #131418 - Card BG */
+    --bg-surface-2: 225 10% 12%;
+    /* #1d1f24 */
+
+    /* Text */
+    --text-primary: 0 0% 100%;
+    /* #ffffff */
+    --text-secondary: 220 10% 70%;
+    /* #9ca3af */
+    --text-muted: 220 10% 50%;
+    /* #6b7280 */
+
+    /* Accent (Neon Purple/Blue) */
+    --accent-primary: 270 95% 65%;
+    /* #a855f7 - Neon Purple */
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 270 50% 20%;
+    /* Dark purple bg */
+
+    /* Borders */
+    --border-subtle: 225 10% 15%;
+    --border-strong: 225 10% 25%;
+
+    /* UI Elements */
+    --radius-card: 0px;
+    /* Sharp edges */
+    --radius-btn: 2px;
+    --font-body: var(--font-sans);
+    --font-heading: var(--font-sans);
+    /* Could be Mono for extra tech feel */
+
+    /* Shadows */
+    --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 4px 20px rgba(0, 0, 0, 0.5);
+    --shadow-float: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 10px 40px rgba(168, 85, 247, 0.15);
+    /* Purple glow */
+  }
+
+  /* =========================================
+     THEME: ELEGANT (Framer / Editorial Style)
+     Vibe: Luxury, Serif, Warm, Mesh Gradients
+     ========================================= */
+  .theme-elegant {
+    /* Backgrounds */
+    --bg-base: 40 20% 98%;
+    /* #fafaf9 - Warm White */
+    --bg-surface: 0 0% 100%;
+    /* #ffffff */
+    --bg-surface-2: 40 10% 96%;
+    /* #f5f5f4 */
+
+    /* Text */
+    --text-primary: 24 10% 10%;
+    /* #1c1917 - Warm Charcoal */
+    --text-secondary: 24 5% 35%;
+    /* #57534e */
+    --text-muted: 24 5% 60%;
+    /* #a8a29e */
+
+    /* Accent (Bronze/Gold) */
+    --accent-primary: 30 80% 35%;
+    /* #a16207 - Bronze */
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 30 50% 94%;
+    /* Light beige */
+
+    /* Borders */
+    --border-subtle: 40 10% 90%;
+    --border-strong: 40 10% 80%;
+
+    /* UI Elements */
+    --radius-card: 0.5rem;
+    --radius-btn: 9999px;
+    /* Pill buttons */
+    --font-body: var(--font-sans);
+    --font-heading: var(--font-serif);
+
+    /* Shadows */
+    --shadow-card: 0 2px 10px rgba(28, 25, 23, 0.03);
+    --shadow-float: 0 20px 40px rgba(28, 25, 23, 0.08);
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border-subtle));
+  }
+
+  body {
+    background-color: hsl(var(--bg-base));
+    color: hsl(var(--text-primary));
+    font-family: var(--font-body);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    color: hsl(var(--text-primary));
+    letter-spacing: -0.02em;
+  }
+}
+
+/* --- UTILITIES --- */
+
+/* Mesh Gradients */
+.mesh-modern {
+  background-image:
+    radial-gradient(at 0% 0%, hsla(243, 75%, 59%, 0.03) 0, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(243, 75%, 59%, 0.03) 0, transparent 50%);
+}
+
+.mesh-bold {
+  background-image:
+    radial-gradient(at 50% 0%, hsla(270, 95%, 65%, 0.1) 0, transparent 60%),
+    radial-gradient(at 100% 100%, hsla(220, 90%, 60%, 0.1) 0, transparent 50%);
+}
+
+.mesh-elegant {
+  background-image:
+    radial-gradient(at 0% 0%, hsla(350, 80%, 90%, 0.4) 0, transparent 50%),
+    /* Rose */
+    radial-gradient(at 100% 0%, hsla(260, 60%, 92%, 0.4) 0, transparent 50%),
+    /* Lavender */
+    radial-gradient(at 50% 100%, hsla(40, 50%, 90%, 0.4) 0, transparent 50%);
+  /* Beige */
+}
+
+/* Glass Panels */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.dark .glass,
+.theme-bold .glass {
+  background: rgba(19, 20, 24, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Text Gradients */
+.text-gradient-bold {
+  background: linear-gradient(to right, #ffffff, #9ca3af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(to right, hsl(var(--accent-primary)), hsl(var(--accent-primary)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
